@@ -1,0 +1,10 @@
+builders:
+  type_react:
+    import: "package:type_react_codegen/builder.dart"
+    builder_factories: ["typeReactBuilder"]
+    # The `partId` argument to `SharedPartBuilder` is "some_cool_builder"
+    build_extensions: {".dart": [".type_react_builder.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    # To copy the `.g.part` content into `.g.dart` in the source tree
+    applies_builders: ["source_gen|combining_builder"]

@@ -1,0 +1,17 @@
+name: type_react_codegen
+description: Code generation for type react.
+version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.11.0 <3.0.0'
+
+dependencies:
+  type_react:
+    path: /Users/denny/workspace/type_react/type_react
+  source_gen:
+  analyzer:
+
+dev_dependencies:
+  lints: ^1.0.0
+  test: ^1.16.0
