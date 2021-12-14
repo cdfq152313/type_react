@@ -22,28 +22,34 @@ mixin ComponentProps {
   noSuchMethod(Invocation invocation) => throw UnimplementedError('ComponentProps Unimplemented');
 }
 
-abstract class TypedState {}
+mixin ComponentState {
+  // No setter in ComponentState
+  @override
+  noSuchMethod(Invocation invocation) => throw UnimplementedError('ComponentState Unimplemented');
+}
+
+abstract class TypedState {
+  Map toMap();
+}
 
 abstract class TypedComponent<T extends TypedProps> extends Component2 {
   T typedPropsFactory(Map props);
 
-  T _tProps;
-
-  T get tProps => _tProps ??= typedPropsFactory(props);
+  T get tProps => typedPropsFactory(props);
 }
 
-abstract class TypedStateComponent<T extends TypedProps, S extends TypedState> extends TypedComponent<T> {
-  S typedStateFactory(Map props);
+abstract class TypedComponent2<T extends TypedProps, S extends TypedState> extends TypedComponent<T> {
+  S typedStateFactory(Map state);
 
-  S _tState;
+  S get tState => typedStateFactory(state);
 
-  S get tState => _tState ??= typedStateFactory(props);
+  void setTState(S s) => setState(s.toMap());
 }
 
-List autoKey(List elements) {
+List autoKey(String tag, List elements) {
   return elements.mapIndexed((i, e) {
     if (e is ReactElement && e.key == null) {
-      final map = JsBackedMap.from({'key': '$i'});
+      final map = JsBackedMap.from({'key': '$tag-$i'});
       return React.cloneElement(e, map.jsObject);
     } else {
       return e;

@@ -10,10 +10,9 @@ class CoolWidget extends TypedProps with _$CoolWidget {
     this.text,
     this.counter = 9527,
     this.fStr,
-    Ref<CoolWidgetComponent> ref,
     String key,
     List children,
-  }) : super(ref: ref, key: key, children: children);
+  }) : super(key: key, children: children);
 
   final String headline;
   final String text;
@@ -32,9 +31,5 @@ class CoolWidgetComponent extends TypedComponent<CoolWidget> with _$CoolWidgetCo
       div({}, tProps.fStr?.call() ?? 'NO FSTR'),
       div({}, tProps.children.isNotEmpty ? tProps.children : 'NO Children'),
     );
-  }
-
-  void hello() {
-    print('hello');
   }
 }

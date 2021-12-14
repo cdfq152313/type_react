@@ -6,9 +6,6 @@ part of 'cool_widget.dart';
 // TypeReactGenerator
 // **************************************************************************
 
-/// Register component
-final _$CoolWidgetRegister = registerComponent2(() => CoolWidgetComponent());
-
 /// Convert props to ReactElement.
 mixin _$CoolWidget on TypedProps {
   @override
@@ -16,7 +13,8 @@ mixin _$CoolWidget on TypedProps {
     if (children == null) {
       return _$CoolWidgetRegister(toMap());
     } else {
-      return _$CoolWidgetRegister(toMap(), autoKey(children));
+      return _$CoolWidgetRegister(
+          toMap(), autoKey(runtimeType.toString(), children));
     }
   }
 
@@ -55,10 +53,16 @@ class _$CoolWidgetTypedProps with ComponentProps implements CoolWidget {
   String Function() get fStr => props['fStr'];
 }
 
+Map get _$defaultCoolWidgetProps => CoolWidget(null).toMap();
+
+/// Register component
+final _$CoolWidgetRegister = registerComponent2(() => CoolWidgetComponent());
+
+/// Component mixin
 mixin _$CoolWidgetComponent on TypedComponent<CoolWidget> {
   @override
   CoolWidget typedPropsFactory(Map props) => _$CoolWidgetTypedProps(props);
 
   @override
-  Map get defaultProps => CoolWidget(null).toMap();
+  Map get defaultProps => _$defaultCoolWidgetProps;
 }
