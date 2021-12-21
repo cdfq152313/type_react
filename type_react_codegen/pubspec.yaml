@@ -1,6 +1,6 @@
 name: type_react_codegen
 description: Code generation for type react.
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: '>=2.11.0 <3.0.0'
@@ -10,7 +10,7 @@ dependencies:
     git:
       url: https://github.com/cdfq152313/type_react
       path: type_react
-      ref: v0.0.1
+      ref: v0.0.2
   source_gen:
   analyzer:
 
