@@ -66,7 +66,8 @@ class _$CoolWidget2StateTypedState
 Map get _$initCoolWidget2State => CoolWidget2State().toMap();
 
 /// Register component
-final _$CoolWidget2Register = registerComponent2(() => CoolWidget2Component());
+final _$CoolWidget2Register = registerComponent2(() => CoolWidget2Component())
+  ..reactClass.displayName = 'CoolWidget2';
 
 /// Component mixin
 mixin _$CoolWidget2Component on TypedComponent2<CoolWidget2, CoolWidget2State> {

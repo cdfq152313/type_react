@@ -56,7 +56,8 @@ class _$CoolWidgetTypedProps with ComponentProps implements CoolWidget {
 Map get _$defaultCoolWidgetProps => CoolWidget(null).toMap();
 
 /// Register component
-final _$CoolWidgetRegister = registerComponent2(() => CoolWidgetComponent());
+final _$CoolWidgetRegister = registerComponent2(() => CoolWidgetComponent())
+  ..reactClass.displayName = 'CoolWidget';
 
 /// Component mixin
 mixin _$CoolWidgetComponent on TypedComponent<CoolWidget> {

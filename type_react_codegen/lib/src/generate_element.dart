@@ -139,17 +139,18 @@ class GenerateComponent extends GenerateElement {
     final stateElement = getStateElement(superComponent);
 
     buffer.writeln('/// Register component');
-    final registerName = GenerateProps.registerName(propsElement.getDisplayString(withNullability: false));
-    buffer.writeln('final $registerName = registerComponent2(() => ${element.displayName}());');
+    final widgetName = propsElement.getDisplayString(withNullability: false);
+    final registerName = GenerateProps.registerName(widgetName);
+    buffer.writeln("final $registerName = registerComponent2(() => ${element.displayName}())..reactClass.displayName = '$widgetName';");
 
     buffer.writeln('/// Component mixin');
     buffer.writeln('''
     ${mixinDeclaration(componentMixinName, propsElement, stateElement)}{
       @override
-      ${propsElement.getDisplayString(withNullability: false)} typedPropsFactory(Map props) => ${GenerateProps.jsPropsName(propsElement.getDisplayString(withNullability: false))}(props);
+      $widgetName typedPropsFactory(Map props) => ${GenerateProps.jsPropsName(widgetName)}(props);
 
       @override
-      Map get defaultProps => ${GenerateProps.defaultPropsName(propsElement.getDisplayString(withNullability: false))};
+      Map get defaultProps => ${GenerateProps.defaultPropsName(widgetName)};
       
       ${extraContent(stateElement)}
     }
