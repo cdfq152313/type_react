@@ -2,7 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:analyzer/src/dart/element/inheritance_manager3.dart' show InheritanceManager3;
 
-const _excludeFieldsSet = {'r', 'hashCode', 'runtimeType'};
+const _excludeFieldsSet = {'r', 'factoryProxy', 'hashCode', 'runtimeType'};
 
 abstract class GenerateElement {
   String get superType;
