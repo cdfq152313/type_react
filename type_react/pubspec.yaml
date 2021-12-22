@@ -1,6 +1,6 @@
 name: type_react
 description: A Flutter-Style static typing react.
-version: 0.0.2
+version: 0.1.0
 
 environment:
   sdk: '>=2.11.0 <3.0.0'
