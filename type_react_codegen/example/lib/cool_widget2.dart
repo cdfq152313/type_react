@@ -27,11 +27,12 @@ class CoolWidget2Component extends TypedComponent2<CoolWidget2, CoolWidget2State
       {},
       h1({}, tProps.headline),
       div({}, tState.counter ?? 'NO State'),
-      button({'onClick': _onClick}, 'Click'),
+      button(DomProps()..onClick = _onClick, 'Click'),
     );
   }
 
   void _onClick(_) {
+    print('OnClick');
     setTState(CoolWidget2State(counter: tState.counter + 1));
   }
 
