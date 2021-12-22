@@ -43,14 +43,8 @@ class GenerateProps extends GenerateElement {
     buffer.writeln('''
     mixin $propsMixinName on TypedProps{
       @override
-      ReactElement get r { 
-        if(children == null){
-          return $_registerName(toMap());
-        }else{
-          return $_registerName(toMap(), autoKey(runtimeType.toString(), children));
-        }
-      }
-      
+      ReactDartComponentFactoryProxy2<Component2> get factoryProxy => $_registerName;
+
       @override
       Map toMap() {
         final p = this as ${element.displayName};

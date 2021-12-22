@@ -13,7 +13,15 @@ abstract class TypedProps {
 
   Map toMap();
 
-  ReactElement get r;
+  ReactDartComponentFactoryProxy2<Component2> get factoryProxy;
+
+  ReactElement get r {
+    if (children == null) {
+      return factoryProxy(toMap());
+    } else {
+      return factoryProxy(toMap(), autoKey(runtimeType.toString(), children));
+    }
+  }
 }
 
 mixin ComponentProps {

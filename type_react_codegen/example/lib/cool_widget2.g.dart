@@ -9,14 +9,8 @@ part of 'cool_widget2.dart';
 /// Convert props to ReactElement.
 mixin _$CoolWidget2 on TypedProps {
   @override
-  ReactElement get r {
-    if (children == null) {
-      return _$CoolWidget2Register(toMap());
-    } else {
-      return _$CoolWidget2Register(
-          toMap(), autoKey(runtimeType.toString(), children));
-    }
-  }
+  ReactDartComponentFactoryProxy2<Component2> get factoryProxy =>
+      _$CoolWidget2Register;
 
   @override
   Map toMap() {
