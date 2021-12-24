@@ -1,5 +1,6 @@
 name: type_react
 description: A Flutter-Style static typing react.
+repository: https://github.com/cdfq152313/type_react
 version: 0.3.0
 
 environment:
